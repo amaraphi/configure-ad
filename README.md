@@ -25,8 +25,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Create an administrator account in Active Directory
 - Join a virtual machine the domain
 - Set up remote desktop for all domain users
-- Create additional user accounts
-- 
+- Create additional user accounts using a Powershell script
 
 <h2>Deployment and Configuration Steps</h2>
 
