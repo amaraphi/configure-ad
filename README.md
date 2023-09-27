@@ -38,6 +38,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
       <ul>
         <li>Note: Ensure that the VM-1 machine is inside of your RG-1 resource group!</li>
       </ul>
+      <img src="https://github.com/amaraphi/configure-ad/assets/144752187/832f348e-c8fa-41d1-b024-f5a3017abbb6"/>
     </li>
   </ul>
   <h3>Change DC-1’s <strong>IP address from “dynamic” to “static.”</strong></h3>
@@ -54,6 +55,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
     <li>Under Settings, click on IP configurations</li>
   </ul>
   <ul>
+<img src="https://github.com/amaraphi/configure-ad/assets/144752187/7c50b570-8170-4b7d-8a6d-ac7591a772cc"/>
     <li>We can observe that DC-1’s private IP address is dynamic. Click on “ipconfig1.”
       <ul>
         <li>Note: write down or take note of this private IP address, which we’ll need for a later step in this tutorial.</li>
@@ -63,6 +65,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <ul>
     <li>Change the Allocation settings from Dynamic to Static. Click Save.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/f749a88b-2ada-4ae8-9aca-52584ac8c51e"/>
   <h3><strong>Create another VM, this time called “Client-1.” This is the client that we’ll join to Active Directory, which will allow any user within the domain to log in remotely.</strong></h3>
   <ul>
     <li>Under Subscription —&gt; Resource Group, select the RG-1 resource group that contains VM-1.</li>
@@ -76,6 +79,10 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <ul>
     <li>Before creating the VM, confirm that Client-1 will be within our domain controller’s virtual network by clicking on the Networking tab.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/44fd2055-0c1a-44a3-b22f-2389d450e952"/>
+
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/a7eeb49c-ecbf-4b19-929b-fd1ab600c2f7"/>
+
   <ul>
     <li>After confirming, click “Review + Create” then “Create.”</li>
   </ul>
@@ -99,6 +106,8 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <ul>
     <li>Note that our ping requests have timed out. This is because the domain controller has blocked inbound ICMP traffic.</li>
   </ul>
+ <img src="https://github.com/amaraphi/configure-ad/assets/144752187/7466d010-793d-402b-a1f3-2a3875610035"/>
+
   <ul>
     <li>Open a new session of Microsoft Remote Desktop.</li>
   </ul>
@@ -112,9 +121,13 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <ul>
     <li>Open Windows firewall by using the taskbar to search for wf.msc.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/f7b6a888-4f1f-4ff2-889d-b567fa448878"/>
+
   <ul>
     <li>Under Inbound Rules, filter rules by protocol &gt; ICMPv4</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/71d224a5-ddf2-49b6-889d-62456e1df1aa"/>
+
   <ul>
     <li>Right-click and select Enable Rule for:
       <ul>
@@ -123,11 +136,13 @@ This tutorial outlines the implementation of on-premises Active Directory within
       <ul>
         <li>Core Networking Diagnostics - ICMP Echo Request - Profile: Private, Public</li>
       </ul>
+      <img src="https://github.com/amaraphi/configure-ad/assets/144752187/8b33bcbd-8649-4920-b2f1-7e90194936a3"/>
     </li>
   </ul>
   <ul>
-    <li>Return to Client 1’s command line in Windows Remote Desktop. Note that Client-1’s ping requests are now receiving replies from DC-1.</li>
+    <li>Return to Client 1’s command line in Windows Remote Desktop. Note that Client-1’s ping (echo) requests are now receiving replies from DC-1.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/1a0a0d3c-9866-4d6f-adec-61f6c0383590"/>
   <h3>Install Active Directory on DC-1</h3>
   <ul>
     <li>Return to DC-1 session in Windows Remote Desktop.</li>
@@ -135,6 +150,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <ul>
     <li>Open the Server Manager. (If not already open, use the taskbar to search.)</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/715b2768-c817-4d39-b448-0e0dfc31b581"/>
   <ul>
     <li>Under Configure this local server, select Add roles and features. This should open the installation wizard.
       <ul>
