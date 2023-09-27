@@ -161,10 +161,13 @@ This tutorial outlines the implementation of on-premises Active Directory within
           <ul>
             <li>In Server Selection, confirm that Active Directory will be installed on DC-1 (confirm correct private IP address and that it will be installed on a Windows Datacenter Server)</li>
           </ul>
+          <img src="https://github.com/amaraphi/configure-ad/assets/144752187/a41686f7-9316-4d87-9432-eab59282d751"/>
           <ul>
-            <li>Server Roles —&gt; Active Directory Domain Services
+            <li>Server Roles —&gt; Active Directory Domain Services</li>
+          </ul>
+              <img src="https://github.com/amaraphi/configure-ad/assets/144752187/ed491e4d-7c34-45d1-9590-61acfd7daf66"/>
               <ul>
-                <li>A pop up suggesting the installation of the additiona. features. Click add features.</li>
+                <li>A pop up suggesting the installation of the additional features. Click add features.</li>
               </ul>
             </li>
           </ul>
@@ -179,6 +182,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <ul>
     <li>Back on the Server Manager homepage, select the Notifications in the top right. (Yellow triangular sign with exclamation mark.)</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/93d2d6c9-d46b-48aa-8b6b-3778d8419eb8"/>
   <ul>
     <li>Click Promote this Server to a Domain Controller. You should now see the Active Directory Domain Services Configuration Wizard.
       <ul>
@@ -189,9 +193,11 @@ This tutorial outlines the implementation of on-premises Active Directory within
           <ul>
             <li>For the purposes of this tutorial, let’s give our domain a root domain name of mydomain.com</li>
           </ul>
+          <img src="https://github.com/amaraphi/configure-ad/assets/144752187/6329b441-b4ae-486b-abe7-ceb7b3159bc6"/>
           <ul>
             <li>Under Domain Controller Options, create a Directory Services Restore Mode password.</li>
           </ul>
+          <img src="https://github.com/amaraphi/configure-ad/assets/144752187/744ebbb4-ef34-4253-a84c-afa9f2c364b1"/>
           <ul>
             <li>Click Next for all other options.</li>
           </ul>
@@ -200,6 +206,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
               <ul>
                 <li><strong>Note: You will be automatically signed out of DC-1’s remote desktop session.</strong></li>
               </ul>
+              <img src="https://github.com/amaraphi/configure-ad/assets/144752187/2e91fae6-9ecb-4c1c-a186-37b7143f0b4f"/>
             </li>
           </ul>
         </li>
