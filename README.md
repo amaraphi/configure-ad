@@ -236,8 +236,9 @@ This tutorial outlines the implementation of on-premises Active Directory within
         <li>Computer: DC-1’s public IP address</li>
       </ul>
       <ul>
-        <li>Username: mydomain.com\username</li>
+        <li><code>Username: mydomain.com\username</code></li></ul>
       </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/0bf4987f-f527-4931-8705-73431047d67b"/>
     </li>
   </ul>
   <h3>Create Organizational Units (OUs)</h3>
@@ -247,22 +248,26 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <ul>
     <li>Click Tools &gt; Active Directory Users and Computers</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/2651d979-7074-4db2-bed8-bd8c81cf6c2d"/>
   <ul>
     <li>Right-click on <a href="http://mydomain.com">mydomain.com</a> and select New &gt; Organizational Unit
     </li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/8c1f4ab5-9014-49bd-a95e-1aed959366ab"/>
   <ul>
-    <li>Create a new OU named _EMPLOYEES.</li>
+    <li>Create a new OU named <code>_EMPLOYEES.</code></li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/7365f1ff-fa91-4f32-8978-3b37682afd91"/>
   <ul>
     <li>Repeating the same steps, create another OU named _ADMINS</li>
   </ul>
   <ul>
-    <li>Right-click on <a href="http://mydomain.com">mydomain.com</a> and select Refresh.
+    <li>Right-click on <code>mydomain.com">mydomain.com</code> and select Refresh.
     </li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/57ec43ca-2968-4dec-9074-cca785d9d3ef"/>
   <h3>Create a new user</h3>
-  <p><strong>So far we’ve been using a generic account, lab_user, to configure our domain controller. Next we need to create an account that is tied to a specific person. We’ll create new user, “Jane Doe,” in the _ADMINs organizational unit.</strong></p>
+  <p><strong>So far we’ve been using a generic account, lab_user, to configure our domain controller. Next we need to create an account that is tied to a specific person. We’ll create new user, “Jane Doe,” in the <code>_ADMINS</code> organizational unit.</strong></p>
   <ul>
     <li>Right-click on the _ADMINS folder and select New &gt; User:
       <ul>
@@ -274,16 +279,18 @@ This tutorial outlines the implementation of on-premises Active Directory within
       <ul>
         <li>User logon name: jane_admin</li>
       </ul>
+      <img src="https://github.com/amaraphi/configure-ad/assets/144752187/2336d4b4-15fc-4b49-8a59-5dab633a4886"/>
       <ul>
         <li>Create a password.</li>
       </ul>
       <ul>
         <li>Uncheck “User must change password at next logon.”</li>
       </ul>
+      <img src="https://github.com/amaraphi/configure-ad/assets/144752187/28809477-fc3f-4a37-a12f-18f8734456db"/>
     </li>
   </ul>
   <h3>Assign Permissions with Security Groups</h3>
-  <p><strong>Next, we need to assign permissions to our new user account. Since the Jane Doe is in the _ADMINS organizational unit, we’ll add this account to the Domain Admins security group.</strong></p>
+  <p><strong>Next, we need to assign permissions to our new user account. Since the Jane Doe is in the <code>_ADMINS</code> organizational unit, we’ll add this account to the Domain Admins security group.</strong></p>
   <ul>
     <li>Right click on the Jane Doe user account and select “Add to a group.”</li>
   </ul>
