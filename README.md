@@ -300,13 +300,15 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <ul>
     <li>Select “Domain Admins” and click OK.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/a524fcc2-9ee1-49b2-909f-c8ec5483da93"/>
   <h3>Log in to the domain controller as an administrator</h3>
   <ul>
     <li>Open the command prompt and type logoff.</li>
   </ul>
   <ul>
-    <li>Use Remote Desktop to log into DC-1, this time as jane_admin. Remember to use the fully qualified domain name.</li>
+    <li>Use Remote Desktop to log into DC-1, this time as jane_admin. Remember to use the fully qualified domain name, or FQDN.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/aee6d712-bc06-4603-b6f8-2047867ed2fe"/>
   <h3><strong>Configure Client-1 DNS settings</strong></h3>
   <ul>
     <li>Before Client-1 can be joined to the domain controller, we need to set its DNS settings to our domain controller’s private IP address.
