@@ -449,11 +449,13 @@ while ($count -lt $NUMBER_OF_ACCOUNTS_TO_CREATE) {
   <ul>
     <li>Click File —&gt; Run to run the script.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/754af54f-0490-4233-83b2-7e8559b9423a"/>
   <ul>
     <li>You can observe the list of users being generated:
       <ul>
         <li>This will randomly generate a list of 1,000 users with names that consist of alternating vowels and consonants.</li>
       </ul>
+      <img src="https://github.com/amaraphi/configure-ad/assets/144752187/fc267552-e8eb-4b9d-8d7e-908fd393f0e9"/>
       <ul>
         <li>These users will be automatically added to the _EMPLOYEES organizational unit.</li>
       </ul>
