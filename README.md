@@ -323,15 +323,18 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <ul>
     <li>Click on Client-1’s network interface, then select “DNS Servers.”</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/47d2e291-bb56-407d-a626-9294c03504fc"/>
   <ul>
     <li>Change DNS settings to “Custom.”</li>
   </ul>
   <ul>
     <li>Paste or type DC-1’s private IP address then click Save.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/c4d92dd7-6b82-4ea0-9b4d-8afa6265d4d9"/>
   <ul>
     <li>After the DNS settings have been updated, restart Client-1 from within the portal.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/f894f49f-188f-46d1-87f7-3f585fa08f96"/>
   <h3>Join Client-1 to the domain controller</h3>
   <ul>
     <li>Use Remote Desktop to log in to Client-1</li>
@@ -341,10 +344,12 @@ This tutorial outlines the implementation of on-premises Active Directory within
       <ul>
         <li>Click on Rename this PC &gt; Change</li>
       </ul>
+      <img src="https://github.com/amaraphi/configure-ad/assets/144752187/67e052ef-3146-469f-8c00-55f6b7675de7"/>
       <ul>
-        <li>Member of &gt; Domain: <a href="http://mydomain.com">mydomain.com</a> &gt; OK.
+        <li>Member of &gt; Domain: <code>mydomain.com</code> &gt; OK.
         </li>
       </ul>
+      <img src="https://github.com/amaraphi/configure-ad/assets/144752187/74c1bc83-ee0a-428b-9e85-b38b9bf35d25"/>
     </li>
   </ul>
   <ul>
@@ -353,13 +358,16 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <ul>
     <li>Enter the jane_admin username and password.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/82f225de-80b9-4b0a-a7b7-7ba4aacb14c2"/>
   <ul>
     <li>You will be prompted to restart Client-1. Click OK then Restart Now.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/3d6e0366-b36e-4718-95a5-07205f933051"/>
   <h3>Confirm that Client-1 is joined to the domain controller</h3>
   <ul>
     <li>In Active Directory Users and Computers, click on the root of the domain (mydomain.com) &gt; Computers to confirm that Client-1 is now inside of Active Directory.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/367de613-78a2-4133-a737-16c34cf5ab5d"/>
   <p>Allow all domain users to log in to Client-1</p>
   <ul>
     <li>Log in to client one with the jane_admin account.</li>
@@ -370,12 +378,14 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <ul>
     <li>Click on Remote Desktop &gt; Select users that can remotely access this PC.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/f36a1d35-de33-40f7-a110-512681334306"/>
   <ul>
     <li>Under “object names” type “domain” then click on “Check Names.”</li>
   </ul>
   <ul>
     <li>Select Domain Users. Click OK.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/f1227a20-bc88-4e22-8888-cd1d0bb2804e"/>
   <h3>Log in to Client-1 as a domain user</h3>
   <p><strong>Now that any user in the domain can access Client-1, we’ll create a randomly generated a list of domain users using a Powershell script. These users will be part of the _EMPLOYEES organizational unit.</strong></p>
   <ul>
@@ -385,7 +395,56 @@ This tutorial outlines the implementation of on-premises Active Directory within
     <li>Use the taskbar to search for “Powershell ISE.” Right click on “run as Administrator.”</li>
   </ul>
   <ul>
-    <li>Open a new file and paste the Powershell script.</li>
+    <li>Open a new file and paste the following script:</li>
+
+``` # ----- Edit these Variables for your own Use Case ----- #
+$PASSWORD_FOR_USERS   = "Password1"
+$NUMBER_OF_ACCOUNTS_TO_CREATE = 10000
+# ------------------------------------------------------ #
+
+Function generate-random-name() {
+    $consonants = @('b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','z')
+    $vowels = @('a','e','i','o','u','y')
+    $nameLength = Get-Random -Minimum 3 -Maximum 7
+    $count = 0
+    $name = ""
+
+    while ($count -lt $nameLength) {
+        if ($($count % 2) -eq 0) {
+            $name += $consonants[$(Get-Random -Minimum 0 -Maximum $($consonants.Count - 1))]
+        }
+        else {
+            $name += $vowels[$(Get-Random -Minimum 0 -Maximum $($vowels.Count - 1))]
+        }
+        $count++
+    }
+
+    return $name
+
+}
+
+$count = 1
+while ($count -lt $NUMBER_OF_ACCOUNTS_TO_CREATE) {
+    $fisrtName = generate-random-name
+    $lastName = generate-random-name
+    $username = $fisrtName + '.' + $lastName
+    $password = ConvertTo-SecureString $PASSWORD_FOR_USERS -AsPlainText -Force
+
+    Write-Host "Creating user: $($username)" -BackgroundColor Black -ForegroundColor Cyan
+    
+    New-AdUser -AccountPassword $password `
+               -GivenName $firstName `
+               -Surname $lastName `
+               -DisplayName $username `
+               -Name $username `
+               -EmployeeID $username `
+               -PasswordNeverExpires $true `
+               -Path "ou=_EMPLOYEES,$(([ADSI]`"").distinguishedName)" `
+               -Enabled $true
+    $count++
+}
+```
+
   </ul>
   <ul>
     <li>Click File —&gt; Run to run the script.</li>
