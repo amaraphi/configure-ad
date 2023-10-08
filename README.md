@@ -457,25 +457,34 @@ while ($count -lt $NUMBER_OF_ACCOUNTS_TO_CREATE) {
       </ul>
       <img src="https://github.com/amaraphi/configure-ad/assets/144752187/fc267552-e8eb-4b9d-8d7e-908fd393f0e9"/>
       <ul>
-        <li>These users will be automatically added to the _EMPLOYEES organizational unit.</li>
+        <li>These users will be automatically added to the <code>_EMPLOYEES</code> organizational unit:</li>
       </ul>
+      <img src="https://github.com/amaraphi/configure-ad/assets/144752187/84416e7d-558f-4176-b86d-32ed749df527"/>
       <ul>
-        <li>The password for all of the user accounts will be Password1.</li>
+        <li>The password for all of the user accounts will be Password1:</li>
       </ul>
+      <img src="https://github.com/amaraphi/configure-ad/assets/144752187/097d099c-059a-4b19-babb-d0f0b2f479c5"/>
     </li>
   </ul>
   <ul>
     <li>When the script has finished executing, return to Active Directory Users and Computers and click on the _EMPLOYEES folder. You’ll see a list of our newly-created users.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/57f32045-fafb-4e4c-bcec-659f2407e1fe"/>
   <ul>
     <li>To log in to Client-1 using one of these accounts, pick a random user account from the list.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/b9df5e4b-6885-47b0-91b0-94be56951594"/>
   <ul>
     <li>Log out of Client-1.</li>
   </ul>
   <ul>
-    <li>Log in to Client-1 using the random username you chose. Remember that the Powershell script has set the default for all user passwords as Password1.</li>
+    <li>Log in to Client-1 using the random username you chose. Remember that the Powershell script has set the default for all user passwords as <code>Password1.</code></li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/61d94e98-e77f-43de-9003-665d09800b4e"/>
   <ul>
-    <li>You should be able to log in to Client-1 as a domain user.</li>
+    <li>You should be succesfully logged in Client-1 this randomly-generated domain user. To confirm, can open the command prompt and type <code>hostname</code> to confirm that you are now logged in to Client-1.</li>
   </ul>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/4ce8c081-dbe6-463f-89ad-dd91160cf8aa"/>
+  <img src="https://github.com/amaraphi/configure-ad/assets/144752187/41404c5b-92f7-4675-a02c-972c4c8958b6"/>
+
+
